@@ -1,27 +1,5 @@
-let data = [
-  2,
-  'ashkan',
-  99,
-  [
-    2,
-    'ashkan',
-    99,
-    true,
-    new Date(2014, 0, 31),
-    -6.3,
-    'as a man',
-    new Date(2012, 0, 3),
-  ],
-  { number: 1372, age: { number: 'ashansn' } },
-  true,
-  new Date(2014, 0, 31),
-  -6.3,
-  'as a man',
-  new Date(2012, 0, 3),
-];
-
 /* let data = {name: "ashkan", item: [23, new Date(2012, 0, 3)]}; */
-/* let data = ["ashkan", [23, new Date(2012, 0, 3)]]; */
+let data = {name: "ashkan", box: [23, "Reza"]};
 
 function whatTypeIsIt(obj) {
   // returning the type of obj
