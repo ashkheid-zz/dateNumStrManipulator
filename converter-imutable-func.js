@@ -1,27 +1,5 @@
-let data = [
-  2,
-  'ashkan',
-  99,
-  [
-    2,
-    'ashkan',
-    99,
-    true,
-    new Date(2014, 0, 31),
-    -6.3,
-    'as a man',
-    new Date(2012, 0, 3),
-  ],
-  { number: 1372, age: { number: 'ashansn' } },
-  true,
-  new Date(2014, 0, 31),
-  -6.3,
-  'as a man',
-  new Date(2012, 0, 3),
-];
 
-/* let data = {name: "ashkan", item: [23, new Date(2012, 0, 3)]}; */
-/* let data = ["ashkan", [23, new Date(2012, 0, 3)]]; */
+let data = {name: "ashkan", box: [23, "Reza"]};
 
 function whatTypeIsIt(obj) {
   // returning the type of obj
@@ -45,19 +23,23 @@ function changeItem(item) {
       return item;
   }
 }
+// immutable
 // NO clone NO mutation
+let result = {};
 function dateNumStrManipulator(obj) {
   // ⚠ Changing the original object passed to it ⚠
   const type = whatTypeIsIt(obj);
   if (type === 'array' || type === 'object') {
     for (const key in obj) {
-      obj[key] = dateNumStrManipulator(obj[key]);
+      // obj[key] = dateNumStrManipulator(obj[key]);
+      result[key] = dateNumStrManipulator(obj[key]);
     }
   }
   return changeItem(obj);
 }
 
 const newData = dateNumStrManipulator(data);
+console.log("result: ", result);
 
 console.log(data);
 console.log(newData);
