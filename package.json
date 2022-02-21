@@ -1,4 +1,20 @@
 {
+  "name": "datenumstrmanipulator",
+  "version": "1.0.0",
+  "description": "Manipulating date, number, and string from a nested Object (Object or Array)",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashkheid/dateNumStrManipulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashkheid/dateNumStrManipulator/issues"
+  },
+  "homepage": "https://github.com/ashkheid/dateNumStrManipulator#readme",
   "devDependencies": {
     "cypress": "^9.5.0"
   }
