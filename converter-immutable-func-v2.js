@@ -17,7 +17,7 @@ function changeItem(item) {
     case 'number':
       return item + 1;
     case 'string':
-      return item + "-zZz";
+      return item + '-zZz';
     default:
       return item;
   }
@@ -26,17 +26,14 @@ function changeItem(item) {
 console.log('Before working on data 👇🏻');
 console.log(data);
 
-
-function transform(obj) {
+function transform(obj, newObj = {}) {
   // Changing the object passed to it
 
-  let result = {};
   for (const key in obj) {
-
     const valueType = whatTypeIsIt(obj[key]);
     // checking type of the obj[key] which might be either 'object' or 'array'
-    
-    result[key] =
+
+    newObj[key] =
       valueType === 'object'
         ? transform(obj[key])
         : valueType === 'array'
@@ -44,16 +41,14 @@ function transform(obj) {
         : changeItem(obj[key]);
   }
 
-  return result;
+  return newObj;
 }
 
-const newData = transform(data);
+let newData = {};
+transform(data, newData);
 
 console.log('After working on data 👇🏻');
 console.log(data);
 
 console.log('New data 👇🏻');
 console.log(newData);
-
-
-module.exports = dateNumStrManipulator;
