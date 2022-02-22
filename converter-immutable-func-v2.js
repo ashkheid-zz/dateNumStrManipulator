@@ -17,7 +17,7 @@ function changeItem(item) {
     case 'number':
       return item + 1;
     case 'string':
-      return item + "-zZz";
+      return item + '-zZz';
     default:
       return item;
   }
@@ -26,15 +26,13 @@ function changeItem(item) {
 console.log('Before working on data 👇🏻');
 console.log(data);
 
-
 function transform(obj, newObj = {}) {
   // Changing the object passed to it
 
   for (const key in obj) {
-
     const valueType = whatTypeIsIt(obj[key]);
     // checking type of the obj[key] which might be either 'object' or 'array'
-    
+
     newObj[key] =
       valueType === 'object'
         ? transform(obj[key])
@@ -46,7 +44,7 @@ function transform(obj, newObj = {}) {
   return newObj;
 }
 
-let newData = {}
+let newData = {};
 transform(data, newData);
 
 console.log('After working on data 👇🏻');
