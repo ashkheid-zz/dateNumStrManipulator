@@ -1,6 +1,7 @@
 let data = {
   name: 'ashkan',
-  skils: {
+  age: 28,
+  skills: {
     code: ['JS', 'HTML', 'CSS'],
     music: ['kalimba', 'piano', 'clarinet'],
   },
