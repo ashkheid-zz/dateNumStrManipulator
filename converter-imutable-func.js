@@ -1,5 +1,11 @@
-
-let data = {name: "ashkan", box: [23, "Reza"]};
+let data = {
+  name: 'ashkan',
+  skils: {
+    code: ['JS', 'HTML', 'CSS'],
+    music: ['kalimba', 'piano', 'clarinet'],
+  },
+};
+// let data = { name: 'ashkan', info: { age: 23, father: 'Reza', info: { age: 47, father: 'Sezar' }} };
 
 function whatTypeIsIt(obj) {
   // returning the type of obj
@@ -24,29 +30,35 @@ function changeItem(item) {
   }
 }
 
-console.log("Before working on data 👇🏻");
+console.log('Before working on data 👇🏻');
 console.log(data);
 
 // immutable
 // NO clone NO mutation
-let result = {};
 function dateNumStrManipulator(obj) {
-  // ⚠ Changing the original object passed to it ⚠
-  const type = whatTypeIsIt(obj);
-  if (type === 'array' || type === 'object') {
-    for (const key in obj) {
-      // obj[key] = dateNumStrManipulator(obj[key]);
-      obj[key] = dateNumStrManipulator(obj[key]);
-    }
+  // Changing the object passed to it
+
+  let result = {};
+  for (const key in obj) {
+
+    const valueType = whatTypeIsIt(obj[key]);
+    // checking type of the obj[key] which might be either 'object' or 'array'
+    
+    result[key] =
+      valueType === 'object'
+        ? dateNumStrManipulator(obj[key])
+        : valueType === 'array'
+        ? obj[key].map((item) => changeItem(item))
+        : changeItem(obj[key]);
   }
-  return changeItem(obj);
+
+  return result;
 }
 
 const newData = dateNumStrManipulator(data);
-console.log("result: ", result);
 
-console.log("After working on data 👇🏻");
+console.log('After working on data 👇🏻');
 console.log(data);
 
-console.log("New data 👇🏻");
+console.log('New data 👇🏻');
 console.log(newData);
