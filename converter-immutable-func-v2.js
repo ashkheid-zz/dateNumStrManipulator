@@ -52,3 +52,5 @@ console.log(data);
 
 console.log('New data 👇🏻');
 console.log(newData);
+
+module.exports = transform;

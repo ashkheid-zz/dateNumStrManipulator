@@ -1,4 +1,4 @@
-const func = require('./converter-immutable-func');
+const func = require('./converter-immutable-func-v2');
 let data = {
   name: 'ashkan',
   age: 28,
@@ -8,22 +8,20 @@ let data = {
   },
 };
 
-test('expect ashkan to be one character longer', () => {
-  const result = func(data);
-  expect(data.name.length).toBeLessThan(result.name.length);
+const result = func(data);
+
+test('expect ashkan to be ashkan-zZz', () => {
+  expect(result.name).toBe('ashkan-zZz');
 });
 
 test('age is expected to be one unit greater', () => {
-  const result = func(data);
   expect(result.age).toEqual(data.age + 1);
 });
 
 test('the original data should\'ve been remained untouched', () => {
-  const result = func(data);
   expect(result).not.toEqual(data);
 });
 
 test('result should not be undefined', () => {
-  const result = func(data);
   expect(result).not.toBeUndefined();
 });
