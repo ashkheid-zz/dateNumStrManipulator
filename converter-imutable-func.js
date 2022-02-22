@@ -23,6 +23,10 @@ function changeItem(item) {
       return item;
   }
 }
+
+console.log("Before working on data 👇🏻");
+console.log(data);
+
 // immutable
 // NO clone NO mutation
 let result = {};
@@ -32,7 +36,7 @@ function dateNumStrManipulator(obj) {
   if (type === 'array' || type === 'object') {
     for (const key in obj) {
       // obj[key] = dateNumStrManipulator(obj[key]);
-      result[key] = dateNumStrManipulator(obj[key]);
+      obj[key] = dateNumStrManipulator(obj[key]);
     }
   }
   return changeItem(obj);
@@ -41,5 +45,8 @@ function dateNumStrManipulator(obj) {
 const newData = dateNumStrManipulator(data);
 console.log("result: ", result);
 
+console.log("After working on data 👇🏻");
 console.log(data);
+
+console.log("New data 👇🏻");
 console.log(newData);
