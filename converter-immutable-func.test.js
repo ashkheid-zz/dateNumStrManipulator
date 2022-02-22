@@ -1,4 +1,4 @@
-const func = require('./converter-imutable-func');
+const func = require('./converter-immutable-func');
 let data = {
   name: 'ashkan',
   age: 28,
