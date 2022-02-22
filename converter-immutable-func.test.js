@@ -13,12 +13,12 @@ test('expect ashkan to be one character longer', () => {
   expect(data.name.length).toBeLessThan(result.name.length);
 });
 
-test('That age is expected to be one unit greater', () => {
+test('age is expected to be one unit greater', () => {
   const result = func(data);
   expect(result.age).toEqual(data.age + 1);
 });
 
-test('the original date should\'ve been remained untouched', () => {
+test('the original data should\'ve been remained untouched', () => {
   const result = func(data);
   expect(result).not.toEqual(data);
 });
