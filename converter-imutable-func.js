@@ -1,6 +1,6 @@
 let data = {
   name: 'ashkan',
-  skils: {
+  skills: {
     code: ['JS', 'HTML', 'CSS'],
     music: ['kalimba', 'piano', 'clarinet'],
   },
@@ -12,19 +12,12 @@ function whatTypeIsIt(obj) {
   return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
 }
 
-function addCharToEnd(str, index) {
-  // Adding the str.charAt(index) character to the end of the str
-  // if index not provided, one of the str characters will be use
-  let rndIndex = Math.floor(Math.random() * str.length);
-  return str + str.charAt(index ?? rndIndex).toLowerCase();
-}
-
 function changeItem(item) {
   switch (whatTypeIsIt(item)) {
     case 'number':
       return item + 1;
     case 'string':
-      return addCharToEnd(item);
+      return item + "-zZz";
     default:
       return item;
   }
@@ -33,9 +26,8 @@ function changeItem(item) {
 console.log('Before working on data 👇🏻');
 console.log(data);
 
-// immutable
-// NO clone NO mutation
-function dateNumStrManipulator(obj) {
+
+function transform(obj) {
   // Changing the object passed to it
 
   let result = {};
@@ -46,7 +38,7 @@ function dateNumStrManipulator(obj) {
     
     result[key] =
       valueType === 'object'
-        ? dateNumStrManipulator(obj[key])
+        ? transform(obj[key])
         : valueType === 'array'
         ? obj[key].map((item) => changeItem(item))
         : changeItem(obj[key]);
@@ -55,7 +47,7 @@ function dateNumStrManipulator(obj) {
   return result;
 }
 
-const newData = dateNumStrManipulator(data);
+const newData = transform(data);
 
 console.log('After working on data 👇🏻');
 console.log(data);
